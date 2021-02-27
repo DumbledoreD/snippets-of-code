@@ -3,4 +3,4 @@ image:
 
 tasks:
   - init: ./.init-workspace.sh
-    command: 'echo "TODO: Replace with command to start project"'
+    command: "cat ./fun/emoji.bashrc >> ~/.bashrc && . ~/.bashrc"
