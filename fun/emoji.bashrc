@@ -24,7 +24,7 @@ EMOJIS=(
 
 RANDOM_EMOJI() {
     SELECTED_EMOJI=${EMOJIS[$RANDOM % ${#EMOJIS[@]}]};
-    echo $SELECTED_EMOJI;
+    echo "$SELECTED_EMOJI";
 }
 
-export PS1="\[\033[01;32m\]$(git config user.name)\[\033[00m\] \[\033[01;34m\]\W\[\033[00m\] $(RANDOM_EMOJI) "
+export PS1='\[\033[01;32m\]$(git config user.name)\[\033[00m\] \[\033[01;34m\]\W\[\033[00m\] $(RANDOM_EMOJI) '
