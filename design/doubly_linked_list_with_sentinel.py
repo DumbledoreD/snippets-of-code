@@ -14,6 +14,14 @@ class DoublyLinkedList:
     def __bool__(self):
         return self.sentinel.next != self.sentinel
 
+    def __str__(self):
+        representation = []
+        node = self.sentinel.next
+        while node != self.sentinel:
+            representation.append(str(node.value))
+            node = node.next
+        return ", ".join(representation)
+
     @property
     def tail(self):
         return self.sentinel.prev
@@ -21,14 +29,6 @@ class DoublyLinkedList:
     @property
     def head(self):
         return self.sentinel.next
-
-    def to_list(self):
-        representation = []
-        node = self.sentinel.next
-        while node != self.sentinel:
-            representation.append(node.value)
-            node = node.next
-        return representation
 
     def append(self, node):
         # tail <===> node
@@ -62,24 +62,24 @@ if __name__ == "__main__":
     for node in nodes[1:4]:
         dll.append(node)
 
-    print(dll.to_list())
+    print(dll)
 
     # New head
     dll.appendleft(nodes[0])
-    print(dll.to_list())
+    print(dll)
 
     # New tail
     dll.append(nodes[-1])
-    print(dll.to_list())
+    print(dll)
 
     # Pop head
     dll.pop(nodes[0])
-    print(dll.to_list())
+    print(dll)
 
     # Pop tail
     dll.pop(nodes[-1])
-    print(dll.to_list())
+    print(dll)
 
     # Pop middle
     dll.pop(nodes[2])
-    print(dll.to_list())
+    print(dll)
