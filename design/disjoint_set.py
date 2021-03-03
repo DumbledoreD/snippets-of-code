@@ -6,6 +6,13 @@ class DisjointSet:
         # Parent node has value None
         self.child_to_parent = collections.defaultdict(lambda: None)
 
+    def __str__(self):
+        sets = collections.defaultdict(list)
+        for child in self.child_to_parent.keys():
+            parent = self.find(child)
+            sets[parent].append(child)
+        return str(sets)
+
     def find(self, val):
         parent = self.child_to_parent[val]
 
@@ -26,4 +33,23 @@ class DisjointSet:
         if x_parent == y_parent:
             return
 
-        self.child_to_parent[y] = x_parent
+        # Can keep record of the group sizes and change the smaller group's parent
+        self.child_to_parent[y_parent] = x_parent
+
+
+if __name__ == "__main__":
+    ds = DisjointSet()
+    print(ds)
+
+    ds.union(1, 2)
+    print(ds)
+    ds.union(2, 3)
+    print(ds)
+
+    ds.union(6, 5)
+    print(ds)
+    ds.union(4, 6)
+    print(ds)
+
+    ds.union(1, 6)
+    print(ds)

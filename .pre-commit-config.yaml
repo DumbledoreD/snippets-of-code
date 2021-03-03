@@ -18,10 +18,12 @@ repos:
     rev: 3.8.4
     hooks:
       - id: flake8
+        args: [--config=./.setup.cfg]
   - repo: https://github.com/PyCQA/isort
     rev: 5.7.0
     hooks:
       - id: isort
+        args: [--settings-file=./.setup.cfg]
 
   # Shell
   - repo: https://github.com/shellcheck-py/shellcheck-py
